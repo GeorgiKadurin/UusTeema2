@@ -1,11 +1,7 @@
-﻿from класс1 import*
+from OmaModul import *
 
-est_words = loe_failist('est.txt')
-rus_words = loe_failist('rus.txt')
-
-
-#text_est = loe_failist('est.txt')
-#text_rus = loe_failist('rus.txt')
+text_est = loe_failist('est.txt')
+text_rus = loe_failist('rus.txt')
 
 
 while True:
@@ -17,45 +13,61 @@ while True:
            print("6-Закончить работу")
            v=int(input("Выберите действие: "))
            if v==1:
-                  est_word = input('Введите слово на эстонском: ')
-                  rus_word = est_to_rus(est_word, est_words, rus_words)
-           if rus_word:
-                print('Перевод:', rus_word)
+                  print()
+                  print("Перевод с эстонского языка на русский")
+                  print()
+                  text_es = input("Введите слово на эстонском языке: ")
+                  text_ru = text_est_v_text_rus(text_es, text_est, text_rus)
+                  if text_ru:
+                        print("В переводе на русский это", text_ru)
+                  else:
+                        print("Ошибка")
+
+           elif v==2:
+                    print()
+                    print("Перевод с русского языка на эстонский")
+                    print()
+                    text_ru = input("Введите слово на русском языке: ")
+                    text_es = rus_na_est(text_ru, text_est, text_rus)
+                    if text_es:
+                        print("В переводе на эстонский это", text_es)
+                    else:
+                        print("Ошибка")
+
+           elif v==3:
+                    print()
+                    print("Добавте слово в словарь")
+                    print()
+                    n=int(input("Сколько слов вы хотите добавить: "))
+                    for i in range(n):
+                        text=input("Напишите слово на эстонском: ")
+                        text_ap(text, text_est, text_rus)
+                        print()
+                    laused=loe_failist("est.txt")
+                    for line in laused:
+                        print(line)
+                    print()    
+                    laused=loe_failist("rus.txt")
+                    for line in laused:
+                        print(line)
+                    print()
+
+           elif v==4:
+                    print()
+                    print("Можете исправить ошибку в слове")
+                    print()
+                    correct_word(text, text_est, text_rus)
+                    
+                    laused=loe_failist("est.txt")
+                    for line in laused:
+                        print(line)
+
+           elif v==5:
+                print()
+
            else:
-                print('Слово не найдено в словаре.')
-
-
-
-
-
-
-
-
-
-                #print("Перевод слова с эстонского языка на русский")
-                #t_est = input('Введите слово на эстонском: ')
-                #t_ru = text_est_in_text_rus(t_est, text_est, text_ru)
-                #if t_ru:
-                #   print('Перевод:', text_ru)
-                #else:
-                #    print("Слова нету в списке")
-          
-
-           #elif v==2:
-           #     print()
-
-           #elif v==3:
-           #     print()
-
-           #elif v==4:
-           #     print()
-
-           #elif v==5:
-           #     print()
-
-           #else:
-           #     print("Конец")
-           #     break
+               print("Конец")
+               break
 
 
 
