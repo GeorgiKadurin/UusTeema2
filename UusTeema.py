@@ -1,4 +1,4 @@
-from OmaModul import *
+rom класс1 import*
 
 text_est = loe_failist('est.txt')
 text_rus = loe_failist('rus.txt')
@@ -56,7 +56,7 @@ while True:
                     print()
                     print("Можете исправить ошибку в слове")
                     print()
-                    correct_word(text, text_est, text_rus)
+                    correct_word(text_est, text_rus, text)
                     
                     laused=loe_failist("est.txt")
                     for line in laused:
@@ -64,11 +64,10 @@ while True:
 
            elif v==5:
                 print()
-
+                spin2=teadmiste_kontroll(text_rus,text_est)
            else:
                print("Конец")
                break
-
 
 
 
